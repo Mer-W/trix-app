@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 
@@ -42,4 +43,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function north(){
+        return $this->hasMany(Game::class);
+     }
+
+     public function east(){
+        return $this->hasMany(Game::class);
+     }
+     public function south(){
+        return $this->hasMany(Game::class);
+     }
+     public function west(){
+        return $this->hasMany(Game::class);
+     }
+
+     public function dealer(){
+        return $this->hasMany(Hand::class);
+     }
+
+
+
 }
